@@ -16,12 +16,16 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { ListaProductosComponent } from './view/lista-productos/lista-productos.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormProductComponent } from './view/form-product/form-product.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideNavComponent,
-    ListaProductosComponent
+    ListaProductosComponent,
+    FormProductComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatListModule,
     HttpClientModule,
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
