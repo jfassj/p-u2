@@ -19,13 +19,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormProductComponent } from './view/form-product/form-product.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DeleteProductComponent } from './view/delete-product/delete-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideNavComponent,
     ListaProductosComponent,
-    FormProductComponent
+    FormProductComponent,
+    DeleteProductComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { Producto } from 'src/app/model/producto';
 import { ProductoService } from 'src/app/service/producto.service';
 import { FormProductComponent } from '../form-product/form-product.component';
 import {MatDialog} from '@angular/material/dialog';
+import { DeleteProductComponent } from '../delete-product/delete-product.component';
 
 @Component({
   selector: 'app-lista-productos',
@@ -64,7 +65,19 @@ export class ListaProductosComponent implements OnInit{
       });
     }
 
-    deleteDialog(){}
+    deleteDialog(element:Producto){
+      const dialogRef = this.dialog.open(DeleteProductComponent, {
+        data: element,
+      });
+
+      dialogRef.afterClosed().subscribe((result: any) => {
+        console.log('The dialog was closed');
+        if(result){
+          this.productListMethod();
+        }
+
+      });
+    }
 
     applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
