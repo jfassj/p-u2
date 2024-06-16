@@ -65,18 +65,28 @@ export class ListaProductosComponent implements OnInit{
       });
     }
 
-    deleteDialog(element:Producto){
+    deleteDialog(_id:string){
       const dialogRef = this.dialog.open(DeleteProductComponent, {
-        data: element,
+        data: null,
       });
 
       dialogRef.afterClosed().subscribe((result: any) => {
         console.log('The dialog was closed');
         if(result){
-          this.productListMethod();
+          this.deleteProduct(_id);
         }
 
       });
+    }
+
+    deleteProduct(_id:string){
+      try{
+        this.productService.delete(_id).subscribe(item=>console.log(item))
+        this.productListMethod();
+
+        }catch(error){
+          console.log(error);
+        }
     }
 
     applyFilter(event: Event) {

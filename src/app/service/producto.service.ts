@@ -14,4 +14,14 @@ export class ProductoService {
   getProducts():Observable<Producto[]>{
     return this.http.get<Producto[]>(this.url);
   }
+
+  addProduct(product:any):Observable<Producto>{
+    return this.http.post<Producto>(this.url,product)
+  }
+  editProduct(product:any):Observable<Producto>{
+    return this.http.patch<Producto>(this.url,product)
+  }
+  delete(_id:string):Observable<Producto>{
+    return this.http.delete<Producto>(this.url+"/"+_id)
+  }
 }

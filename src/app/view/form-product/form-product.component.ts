@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ListaProductosComponent } from '../lista-productos/lista-productos.component';
 import { Producto } from 'src/app/model/producto';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProductoService } from 'src/app/service/producto.service';
 
 @Component({
   selector: 'app-form-product',
@@ -15,6 +16,7 @@ export class FormProductComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<ListaProductosComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Producto,
+    private productService:ProductoService,
     private formBuilder:FormBuilder
   ){
 
@@ -49,6 +51,31 @@ export class FormProductComponent implements OnInit {
       }
 
 
+      }
+
+      save(): void{
+        let request={
+          id:this.data!=null?this.data._id:null,
+          name: this.formGroup.value.name,
+          code: this.formGroup.value.code,
+          category: this.formGroup.value.category,
+          description: this.formGroup.value.description,
+          price: this.formGroup.value.price,
+          amount: this.formGroup.value.amount,
+        }
+
+        try{
+          if(!this.data){
+            this.productService.addProduct(request).subscribe(item=>console.log(item))
+          }else{
+            this.productService.editProduct(request).subscribe(item=>console.log(item)
+            )
+          }
+          this.dialogRef.close(true)
+        }catch(error){
+          console.log(error);
+
+        }
       }
 
 }
