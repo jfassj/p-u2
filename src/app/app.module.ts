@@ -20,6 +20,9 @@ import { FormProductComponent } from './view/form-product/form-product.component
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeleteProductComponent } from './view/delete-product/delete-product.component';
+import { DeleteUserComponent } from './view/delete-user/delete-user.component';
+import { ListaUserComponent } from './view/lista-user/lista-user.component';
+import { FormUserComponent } from './view/form-user/form-user.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { DeleteProductComponent } from './view/delete-product/delete-product.com
     SideNavComponent,
     ListaProductosComponent,
     FormProductComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
+    DeleteUserComponent,
+    ListaUserComponent,
+    FormUserComponent
   ],
   imports: [
     BrowserModule,
