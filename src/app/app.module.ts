@@ -23,6 +23,8 @@ import { DeleteProductComponent } from './view/delete-product/delete-product.com
 import { DeleteUserComponent } from './view/delete-user/delete-user.component';
 import { ListaUserComponent } from './view/lista-user/lista-user.component';
 import { FormUserComponent } from './view/form-user/form-user.component';
+import { LoginComponent } from './view/login/login.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { FormUserComponent } from './view/form-user/form-user.component';
     DeleteProductComponent,
     DeleteUserComponent,
     ListaUserComponent,
-    FormUserComponent
+    FormUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { FormUserComponent } from './view/form-user/form-user.component';
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
