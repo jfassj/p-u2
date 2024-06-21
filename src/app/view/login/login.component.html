@@ -9,15 +9,15 @@
   <div class="login-card mat-elevation-z8" fxFlex="35%">
     <main class="login-content" fxLayout="column" fxLayoutAlign="center center">
       <span class="login-header mb-5 mt-3">Login</span>
-      <form class="login-form align-items-center" fxLayout="column" (ngSubmit)="login($event)">
+      <form [formGroup]="formGroup" class="login-form align-items-center" fxLayout="column" (ngSubmit)="login1()">
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Username</mat-label>
-          <input matInput placeholder="Type your username" type="text">
+          <input matInput placeholder="Type your username" type="text" formControlName='username'>
           <mat-icon matPrefix>person_outline</mat-icon>
         </mat-form-field>
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Password</mat-label>
-          <input matInput placeholder="Type your password" type="password">
+          <input matInput placeholder="Type your password" type="password" formControlName='password'>
           <mat-icon matPrefix>lock_outline</mat-icon>
           <!-- <mat-error *ngIf="formGroup.controls.password.hasError('required')">
             Password is <strong>required</strong>

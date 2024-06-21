@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from 'src/app/service/login.service';
 import { UnsplashService } from 'src/app/service/unsplash.service';
 @Component({
   selector: 'app-login',
@@ -7,12 +8,13 @@ import { UnsplashService } from 'src/app/service/unsplash.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  backgroundUrl: string = 'rainy';
+  backgroundUrl: string = '';
 
   formGroup!:FormGroup;
 
   constructor(private formBuilder:FormBuilder,
-    private unsplashService: UnsplashService
+    private unsplashService: UnsplashService,
+    private authService: LoginService,
   ){}
 
   ngOnInit(): void {
@@ -23,15 +25,19 @@ export class LoginComponent implements OnInit {
   }
 
   initForm(){
-    // try{
-    // this.userService.getUsers()
-    // .subscribe(item => this.productlist= new MatTableDataSource(item))
-    // console.log(this.productlist.data)
+    this.formGroup=this.formBuilder.group({
+      username:["",Validators.required],
+      password:["",Validators.required]
+      })
+  }
 
-    // }catch(error){
-    // console.log(error)
-    // }
-
+  login1(): void{
+    let login ={
+      username: this.formGroup.value.username,
+      password: this.formGroup.value.password,
+    }
+  this.authService.login(login)
+  .subscribe(item=>console.log(item.token));
     }
     unsplashClass() {
       return {
