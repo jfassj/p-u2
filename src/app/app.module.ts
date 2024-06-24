@@ -25,6 +25,10 @@ import { ListaUserComponent } from './view/lista-user/lista-user.component';
 import { FormUserComponent } from './view/form-user/form-user.component';
 import { LoginComponent } from './view/login/login.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { VentasComponent } from './view/ventas/ventas.component';
+import {MatCardModule} from '@angular/material/card';
+import { CardImageComponent } from './view/card-image/card-image.component';
+import { ShopCartComponent } from './view/shop-cart/shop-cart.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     DeleteUserComponent,
     ListaUserComponent,
     FormUserComponent,
-    LoginComponent
+    LoginComponent,
+    VentasComponent,
+    CardImageComponent,
+    ShopCartComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +63,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
