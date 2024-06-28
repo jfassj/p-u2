@@ -24,4 +24,15 @@ export class CartServiceService {
   clearCart(): void {
     this.cartItemsSubject.next([]);
   }
+
+  deleteProductSale(id: string): void {
+    const currentCartItems = this.cartItemsSubject.value;
+    const index = currentCartItems.findIndex(p => p._id === id);
+    if (index !== -1) {
+      currentCartItems.splice(index, 1);
+      this.cartItemsSubject.next([...currentCartItems]);
+    }
+  }
+
+
 }
